@@ -1,8 +1,8 @@
 <?php
 
 if(isset($_POST['submit'])){
-    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])){
-        // $destinatario = $_POST["cibeiramassimo@gmail.com"];
+    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])){     
+       
         $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];
@@ -11,11 +11,8 @@ if(isset($_POST['submit'])){
         $header.= "Reply-To: $email" . "\r\n";
         $header.= "X-Mailer: PHP/" . phpversion();
         $mail = mail($email2,$name,$message,$header);
-        if ($mail){
-            echo "<h4>enviado</h4>";
-        } else{
-            echo"<h4>no su pudo enviar</h4>";
-        }
+        header("Location: index.html");
     }
+    
 }
 ?>
