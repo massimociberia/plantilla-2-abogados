@@ -254,20 +254,21 @@
 					<form id="contactForm" action="php/contact_form.php" method="post">
 						<div class="form-group">
 							<label for="name" class="sr-only">Nombre</label>
-							<input type="text" class="form-control" placeholder="Nombre" id="name">
+							<input type="text" class="form-control" placeholder="Nombre" id="name" name="name" required>
 						</div>
 						<div class="form-group">
 							<label for="email" class="sr-only">Correo</label>
-							<input type="text" class="form-control" placeholder="Correo" id="email">
+							<input type="email" class="form-control" placeholder="Correo" id="email" name="email" required>
 						</div>
 						<div class="form-group">
 							<label for="message" class="sr-only">Mensaje</label>
-							<textarea name="message" id="message" class="form-control" cols="30" rows="7" placeholder="Mensaje"></textarea>
+							<textarea name="message" id="message" class="form-control" cols="30" rows="7" placeholder="Mensaje" required></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Enviar Mensaje" class="btn btn-primary">
+							<input type="submit" value="Enviar Mensaje" class="btn btn-primary" id="cfsubmit">
 						</div>
 					</form>
+					<div id="contactFormResponse"></div>
 				</div>
 				<div class="col-md-4 col-md-pull-6 animate-box">
 					<div class="gtco-contact-info">

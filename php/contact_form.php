@@ -12,12 +12,12 @@
 	
 	// Check if email has been entered and is valid
 	if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-		$errors['email'] = 'Please enter a valid email address';
+		$errors['email'] = 'Email invalido';
 	}
 	
 	//Check if message has been entered
 	if (!isset($_POST['message'])) {
-		$errors['message'] = 'Please enter your message';
+		$errors['message'] = 'Escribir mensaje';
 	}
 
 	$errorOutput = '';
@@ -26,7 +26,6 @@
 
 		$errorOutput .= '<div class="alert alert-danger alert-dismissible" role="alert">';
  		$errorOutput .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-
 		$errorOutput  .= '<ul>';
 
 		foreach ($errors as $key => $value) {
@@ -46,17 +45,17 @@
 	$email = $_POST['email'];
 	$message = $_POST['message'];
 	$from = $email;
-	$subject = 'Contact Form : Texas Lawers Responsive HTML5 Template';
+	$subject = 'Contact Form : nombre de pag empresa';
 	
-	$body = "From: $name\n E-Mail: $email\n Message:\n $message";
+	$body = "Nombre: $name\n E-Mail: $email\n Mensaje:\n $message";
 
 
 	//send the email
 	$result = '';
 	if (mail ($to, $subject, $body)) {
 		$result .= '<div class="alert alert-success alert-dismissible" role="alert">';
- 		$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-		$result .= 'Thank You! I will be in touch';
+		$result .= '¡Gracias! Estaré en contacto';
+		$result .= '<a href="../index.html" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">Volver al sitio</span></a>';
 		$result .= '</div>';
 
 		echo $result;
@@ -65,8 +64,8 @@
 
 	$result = '';
 	$result .= '<div class="alert alert-danger alert-dismissible" role="alert">';
-	$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-	$result .= 'Something bad happend during sending this message. Please try again later';
+	$result .= '<button href="index.html" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+	$result .= 'Algo malo sucede durante el envío de este mensaje. Por favor, inténtelo de nuevo más tarde';
 	$result .= '</div>';
 
 	echo $result;
